@@ -145,11 +145,11 @@ export default function Home() {
       commits: "34 commits",
     },
     {
-      repo: "SIH-2025/civic-tech-engine",
+      repo: "Execute-NMIMS/hackathon-platform",
       hash: "7c9082a",
-      message: "fix(ws): reduce latency in real-time edge processing for national jury demo",
-      date: "SIH 2025",
-      branch: "final-sih",
+      message: "feat(realtime): edge optimization and live jury demonstration build",
+      date: ".Execute NMIMS",
+      branch: "main",
       commits: "22 commits (Collaborator)",
     },
   ];
@@ -173,9 +173,9 @@ export default function Home() {
     ],
     hackathons: [
       "$ dev --hackathon-records",
-      "🏆 Smart India Hackathon (SIH 2025) — National Level Finalist (Top Tier)",
-      "🏆 2-Time National Hackathon Finalist across multi-disciplinary teams",
-      "🏆 Contender: INNOHACK 2.0, Techathon 3.0, TENET, .Execute",
+      "🏆 .Execute (NMIMS Indore) — National Level Hackathon Finalist",
+      "🏆 2-Time National Hackathon Finalist recognition",
+      "🏆 Contender: .Execute (NMIMS Indore), INNOHACK 2.0, Techathon 3.0, TENET, SIH 2025",
     ],
     academics: [
       "$ dev --education",
@@ -257,28 +257,6 @@ export default function Home() {
       tech: ["React.js", "Vite", "Bun", "Node.js", "Firebase", "Vercel", "GoDaddy DNS"],
       github: "https://github.com/Utkarsh9090",
       icon: Briefcase,
-    },
-    {
-      id: "sih2025",
-      title: "SIH 2025 Finalist Platform",
-      role: "Core Full-Stack Collaborator",
-      roleType: "collab",
-      category: "collab",
-      period: "Smart India Hackathon 2025",
-      gitBadge: "22 commits · 4 PRs merged",
-      collabNote: "6-developer hackathon team · National Level Finalist",
-      tagline: "National Level Problem Solving & Scalable Civic Technology",
-      description:
-        "Developed under rigorous 36-hour hackathon constraints for Smart India Hackathon 2025, solving complex real-world data and service routing challenges.",
-      highlights: [
-        "Selected as National Finalist out of thousands of competing collegiate engineering teams across India.",
-        "Spearheaded real-time frontend dashboard and state synchronization under tight evaluation deadlines.",
-        "Architected RESTful endpoint pipelines connecting data ingestion modules with reactive UI.",
-        "Presented live software deployment to national jury panels with zero-downtime performance.",
-      ],
-      tech: ["React", "TypeScript", "Node.js", "REST APIs", "WebSocket", "Vercel"],
-      github: "https://github.com/Utkarsh9090",
-      icon: Award,
     },
   ];
 
@@ -435,8 +413,8 @@ export default function Home() {
                 </div>
                 <div className="surface-card p-3 rounded-xl border border-white/[0.07]">
                   <div className="text-xs font-mono text-zinc-400">Hackathons</div>
-                  <div className="text-xl font-bold text-amber-400 mt-1">2x Finalist</div>
-                  <div className="text-[11px] text-zinc-400 mt-0.5">SIH 2025 National</div>
+                  <div className="text-xl font-bold text-amber-400 mt-1">Finalist</div>
+                  <div className="text-[11px] text-zinc-400 mt-0.5">.Execute · NMIMS</div>
                 </div>
                 <div className="surface-card p-3 rounded-xl border border-white/[0.07]">
                   <div className="text-xs font-mono text-zinc-400">Open Source</div>
@@ -777,9 +755,9 @@ export default function Home() {
             {/* Filter Tabs */}
             <div className="flex flex-wrap gap-1.5 font-mono text-xs">
               {[
-                { id: "all", label: "All (4)" },
+                { id: "all", label: "All (3)" },
                 { id: "lead", label: "Lead Author (2)" },
-                { id: "collab", label: "Collaborations (2)" },
+                { id: "collab", label: "Collaborations (1)" },
                 { id: "fintech", label: "FinTech & Web (3)" },
               ].map((tab) => (
                 <button
@@ -932,22 +910,22 @@ export default function Home() {
               </ul>
             </div>
 
-            {/* Smart India Hackathon & Hackathon Finalist */}
+            {/* .Execute - NMIMS Indore Hackathon */}
             <div className="surface-card p-6 rounded-2xl border border-white/[0.08] relative">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-white/[0.06] pb-3 mb-3">
                 <div>
                   <div className="flex items-center gap-2 flex-wrap">
-                    <h3 className="text-lg font-bold text-white">Smart India Hackathon (SIH 2025)</h3>
+                    <h3 className="text-lg font-bold text-white">.Execute — NMIMS Indore</h3>
                     <span className="text-xs font-mono px-2.5 py-0.5 rounded bg-amber-500/10 text-amber-300 border border-amber-500/20">
-                      National Level Finalist (2x Finalist)
+                      National Level Hackathon Finalist
                     </span>
                   </div>
                   <p className="text-xs text-zinc-400 font-mono mt-0.5">
-                    Premier nationwide collegiate engineering competition
+                    Flagship national collegiate hackathon by NMIMS MPSTME, Indore
                   </p>
                 </div>
                 <div className="text-xs font-mono text-zinc-400 bg-zinc-900 px-2.5 py-1 rounded-md border border-white/[0.06] w-fit">
-                  National Competitions · 2025
+                  National Competitions · 2025–2026
                 </div>
               </div>
 
@@ -955,13 +933,13 @@ export default function Home() {
                 <li className="flex items-start gap-2">
                   <span className="text-amber-400 font-mono font-bold">›</span>
                   <span>
-                    Represented institution as a 2-time National Level Hackathon Finalist, including <strong>SIH 2025</strong>.
+                    National Level Hackathon Finalist at <strong>.Execute (NMIMS Indore)</strong> representing collegiate engineering team.
                   </span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-amber-400 font-mono font-bold">›</span>
                   <span>
-                    Active competitive contributor across major hackathons: <strong>INNOHACK 2.0</strong>, <strong>Techathon 3.0</strong>, <strong>TENET</strong>, and <strong>.Execute</strong>.
+                    Active competitive contributor across major hackathons: <strong>.Execute (NMIMS Indore)</strong>, <strong>INNOHACK 2.0</strong>, <strong>Techathon 3.0</strong>, and <strong>TENET</strong>.
                   </span>
                 </li>
               </ul>
@@ -1200,12 +1178,6 @@ export default function Home() {
                   <a href="#projects" className="hover:text-white transition-colors flex items-center gap-1.5">
                     <span>BanksBuddy Platform</span>
                     <span className="text-[9px] px-1.5 rounded bg-purple-500/10 text-purple-400">Collab</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="#projects" className="hover:text-white transition-colors flex items-center gap-1.5">
-                    <span>SIH 2025 Finalist</span>
-                    <span className="text-[9px] px-1.5 rounded bg-amber-500/10 text-amber-400">Finalist</span>
                   </a>
                 </li>
               </ul>
