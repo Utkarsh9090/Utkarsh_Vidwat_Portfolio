@@ -15,21 +15,15 @@ import {
   ShoppingCart,
   Phone,
   Check,
-  Brain,
-  Layers,
   ArrowUpRight,
   GitBranch,
   GitCommit,
-  GitPullRequest,
-  Activity,
-  Calendar,
-  FolderGit2,
-  SlidersHorizontal,
   ArrowUp,
   MapPin,
-  Clock,
+  Activity,
+  Layers,
   Sparkle,
-  Code2,
+  Copy,
 } from "lucide-react";
 
 function GithubIcon({ className = "w-4 h-4" }: { className?: string }) {
@@ -50,7 +44,7 @@ function LinkedinIcon({ className = "w-4 h-4" }: { className?: string }) {
 
 export default function Home() {
   const [copied, setCopied] = useState(false);
-  const [projectFilter, setProjectFilter] = useState<"all" | "lead" | "collab" | "fintech">("all");
+  const [projectFilter, setProjectFilter] = useState<"all" | "lead" | "collab">("all");
   const [heroCardMode, setHeroCardMode] = useState<"photo" | "commits" | "terminal">("photo");
   const [selectedStock, setSelectedStock] = useState<"RELIANCE" | "TCS" | "HDFCBANK" | "TATAMOTORS">("RELIANCE");
   const [terminalInput, setTerminalInput] = useState<string>("skills");
@@ -81,7 +75,7 @@ export default function Home() {
       entry: 2990.0,
       target: 3120.0,
       stopLoss: 2930.0,
-      pattern: "Bullish Engulfing + Volume Breakout",
+      pattern: "Bullish Engulfing + Volume Surge",
     },
     TCS: {
       price: 4180.2,
@@ -92,7 +86,7 @@ export default function Home() {
       entry: 4195.0,
       target: 4340.0,
       stopLoss: 4120.0,
-      pattern: "Ascending Triangle Support",
+      pattern: "Ascending Support Rebound",
     },
     HDFCBANK: {
       price: 1688.0,
@@ -103,7 +97,7 @@ export default function Home() {
       entry: 1695.0,
       target: 1770.0,
       stopLoss: 1655.0,
-      pattern: "Volume Expansion on EMA 20 Rebound",
+      pattern: "EMA 20 Pullback Validation",
     },
     TATAMOTORS: {
       price: 942.8,
@@ -118,7 +112,6 @@ export default function Home() {
     },
   };
 
-  // Authentic Git commit log history for Utkarsh
   const commitLogs = [
     {
       repo: "Utkarsh9090/swingtrade-india",
@@ -148,7 +141,7 @@ export default function Home() {
       repo: "Execute-NMIMS/hackathon-platform",
       hash: "7c9082a",
       message: "feat(realtime): edge optimization and live jury demonstration build",
-      date: ".Execute NMIMS",
+      date: "Finalist run",
       branch: "main",
       commits: "22 commits (Collaborator)",
     },
@@ -157,12 +150,12 @@ export default function Home() {
   const terminalOutputs: Record<string, string[]> = {
     skills: [
       "$ dev --inspect-stack",
-      "Core Languages  :: C, C++, Python, Java, JavaScript, TypeScript, SQL",
-      "Frontend Arch   :: React.js, Next.js 16 (App Router), Tailwind CSS, Vite",
-      "Backend & Edge  :: Node.js, Express.js, Bun runtime, REST APIs",
-      "Data & Storage  :: MongoDB, MySQL, Firebase Firestore",
-      "Data Science/AI :: Pandas, NumPy, OpenAI API, NLP Pipelines, PyTorch",
-      "DevOps / Tools  :: Git, GitHub, Vercel Edge, Postman, GoDaddy DNS, Figma",
+      "Languages  :: C, C++, Python, Java, JavaScript, TypeScript, SQL",
+      "Frontend   :: React.js, Next.js 16 (App Router), Tailwind CSS, Vite",
+      "Backend    :: Node.js, Express.js, Bun runtime, RESTful APIs",
+      "Databases  :: MongoDB, MySQL, Firebase Firestore",
+      "AI & Data  :: Pandas, NumPy, OpenAI API, NLP Pipelines, PyTorch",
+      "DevOps     :: Vercel Edge, Git, GitHub, Postman, GoDaddy DNS",
     ],
     experience: [
       "$ dev --experience-log",
@@ -181,7 +174,7 @@ export default function Home() {
       "$ dev --education",
       "🎓 B.E. in Computer Science and Engineering (2024 – 2028)",
       "📍 Nutan Maharashtra Institute of Engineering & Technology, Talegaon Dabhade",
-      "📈 Academic Performance: Average CGPA 8.923 / 10.0",
+      "📈 Academic Standing: Average CGPA 8.923 / 10.0",
     ],
     contact: [
       "$ dev --contact-info",
@@ -192,7 +185,6 @@ export default function Home() {
     ],
   };
 
-  // Flagship 4 Projects (2 Lead + 2 Team Collaborations)
   const projects = [
     {
       id: "swingtrade",
@@ -206,10 +198,10 @@ export default function Home() {
       description:
         "High-performance market screener executing an algorithmic 0–10 scoring model that fuses multi-timeframe Trend, Momentum, and Volume parameters to identify institutional breakouts.",
       highlights: [
-        "Engineered proprietary 0–10 composite ranking engine dynamically filtering NIFTY constituent stocks.",
+        "Proprietary 0–10 composite ranking engine dynamically evaluating NIFTY constituent stocks.",
         "Instant calculation of volatility-adjusted Entry, Target 1/2, and Stop Loss thresholds.",
-        "Integrated interactive TradingView technical chart canvas with overlay indicators.",
-        "Automated pattern recognition for Bullish Engulfing, Morning Star, and abnormal volume surges.",
+        "Interactive TradingView technical chart canvas with overlay indicator signals.",
+        "Automated pattern recognition for Bullish Engulfing, Morning Star, and volume anomalies.",
       ],
       tech: ["Next.js", "TypeScript", "TradingView Canvas", "Tailwind CSS", "Financial Algorithms"],
       github: "https://github.com/Utkarsh9090",
@@ -251,7 +243,7 @@ export default function Home() {
       highlights: [
         "Co-developed the React (Vite + Bun) frontend with clean accessibility and micro-interactions.",
         "Architected Firebase Auth tokens and Node.js backend endpoints for secure customer record retrieval.",
-        "Set up production deployment pipeline on Vercel with custom GoDaddy domain SSL routing.",
+        "Configured continuous deployment pipeline on Vercel with GoDaddy domain SSL routing.",
         "Conducted security reviews protecting against credential exposure and malicious API payloads.",
       ],
       tech: ["React.js", "Vite", "Bun", "Node.js", "Firebase", "Vercel", "GoDaddy DNS"],
@@ -264,7 +256,6 @@ export default function Home() {
     if (projectFilter === "all") return true;
     if (projectFilter === "lead") return p.roleType === "lead";
     if (projectFilter === "collab") return p.roleType === "collab";
-    if (projectFilter === "fintech") return p.category === "fintech";
     return true;
   });
 
@@ -296,46 +287,46 @@ export default function Home() {
   ];
 
   return (
-    <div className="relative min-h-screen bg-[#08090d] text-[#ededed] font-sans selection:bg-sky-500/20 selection:text-sky-200">
-      {/* Background ambient lighting */}
-      <div className="pointer-events-none absolute -top-48 left-1/2 -translate-x-1/2 w-[900px] h-[450px] bg-gradient-to-b from-sky-500/10 via-indigo-500/10 to-transparent blur-[130px] rounded-full ambient-glow" />
-      <div className="pointer-events-none absolute top-[40%] -left-80 w-[600px] h-[600px] bg-blue-500/5 blur-[150px] rounded-full" />
-      <div className="pointer-events-none absolute top-[70%] -right-80 w-[600px] h-[600px] bg-sky-500/5 blur-[150px] rounded-full" />
+    <div className="relative min-h-screen bg-[#FBF7F6] text-[#2A1418] font-sans">
+      {/* Soft Morphed Ambient Highlights */}
+      <div className="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gradient-to-b from-[#9B4A57]/6 via-[#D2410D]/3 to-transparent blur-[120px] rounded-full" />
+      <div className="pointer-events-none absolute top-[35%] -left-64 w-[500px] h-[500px] bg-[#9B4A57]/4 blur-[130px] rounded-full" />
+      <div className="pointer-events-none absolute top-[65%] -right-64 w-[500px] h-[500px] bg-[#D2410D]/3 blur-[130px] rounded-full" />
 
-      {/* Senior UI Nav Bar */}
-      <header className="sticky top-0 z-50 backdrop-blur-xl bg-[#08090d]/85 border-b border-white/[0.07]">
-        <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+      {/* ===================== NAVBAR ===================== */}
+      <header className="sticky top-0 z-50 backdrop-blur-md bg-[#FBF7F6]/85 border-b border-[#9B4A57]/10">
+        <div className="max-w-6xl mx-auto px-6 h-18 flex items-center justify-between">
           <a href="#" className="flex items-center gap-3 group">
-            <span className="w-8 h-8 rounded-lg bg-zinc-900 border border-white/10 flex items-center justify-center font-mono text-xs font-semibold text-white group-hover:border-sky-500/50 group-hover:text-sky-400 transition-all">
+            <span className="w-9 h-9 rounded-xl bg-white border border-[#9B4A57]/20 flex items-center justify-center font-heading font-bold text-xs text-[#9B4A57] shadow-sm group-hover:border-[#9B4A57] group-hover:text-[#7A3441] transition-all">
               UV
             </span>
             <div className="flex flex-col">
-              <span className="font-semibold text-sm text-zinc-100 group-hover:text-white transition-colors">
+              <span className="font-heading font-bold text-sm tracking-tight text-[#2A1418] group-hover:text-[#9B4A57] transition-colors">
                 Utkarsh Vidwat
               </span>
-              <span className="text-[11px] font-mono text-zinc-400">
-                Full-Stack & FinTech Engineer
+              <span className="text-[11px] text-[#7C6A6D]">
+                Full-Stack & FinTech Software Engineer
               </span>
             </div>
           </a>
 
-          <nav className="hidden md:flex items-center gap-7 text-xs font-mono uppercase tracking-wider text-zinc-400">
-            <a href="#about" className="hover:text-zinc-100 transition-colors">
+          <nav className="hidden md:flex items-center gap-8 text-xs font-medium tracking-wide text-[#7C6A6D]">
+            <a href="#about" className="hover:text-[#2A1418] transition-colors">
               About
             </a>
-            <a href="#screener" className="hover:text-zinc-100 transition-colors">
+            <a href="#screener" className="hover:text-[#2A1418] transition-colors">
               Live Screener
             </a>
-            <a href="#projects" className="hover:text-zinc-100 transition-colors">
+            <a href="#projects" className="hover:text-[#2A1418] transition-colors">
               Projects
             </a>
-            <a href="#experience" className="hover:text-zinc-100 transition-colors">
+            <a href="#experience" className="hover:text-[#2A1418] transition-colors">
               Experience
             </a>
-            <a href="#skills" className="hover:text-zinc-100 transition-colors">
+            <a href="#skills" className="hover:text-[#2A1418] transition-colors">
               Arsenal
             </a>
-            <a href="#contact" className="hover:text-zinc-100 transition-colors">
+            <a href="#contact" className="hover:text-[#2A1418] transition-colors">
               Contact
             </a>
           </nav>
@@ -345,7 +336,7 @@ export default function Home() {
               href={GITHUB_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 rounded-lg bg-zinc-900/80 border border-white/[0.08] text-zinc-300 hover:text-white hover:border-white/20 transition-all"
+              className="p-2 rounded-xl bg-white border border-[#9B4A57]/15 text-[#7C6A6D] hover:text-[#2A1418] hover:border-[#9B4A57]/40 shadow-xs transition-all"
               aria-label="GitHub Profile"
             >
               <GithubIcon className="w-4 h-4" />
@@ -354,24 +345,24 @@ export default function Home() {
               href={LINKEDIN_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 rounded-lg bg-zinc-900/80 border border-white/[0.08] text-zinc-300 hover:text-white hover:border-sky-500/40 hover:text-sky-400 transition-all"
+              className="p-2 rounded-xl bg-white border border-[#9B4A57]/15 text-[#7C6A6D] hover:text-[#9B4A57] hover:border-[#9B4A57]/40 shadow-xs transition-all"
               aria-label="LinkedIn Profile"
             >
               <LinkedinIcon className="w-4 h-4" />
             </a>
             <button
               onClick={copyEmail}
-              className="tactile-btn text-xs px-3 py-1.5 rounded-lg text-zinc-200 hover:text-white flex items-center gap-1.5 transition-all font-mono"
+              className="btn-blood-orange px-3.5 py-1.5 rounded-xl text-xs flex items-center gap-1.5 shadow-sm transition-all"
             >
               {copied ? (
                 <>
-                  <Check className="w-3.5 h-3.5 text-emerald-400" />
-                  <span className="text-emerald-400">Copied</span>
+                  <Check className="w-3.5 h-3.5 text-white" />
+                  <span>Copied</span>
                 </>
               ) : (
                 <>
-                  <Mail className="w-3.5 h-3.5 text-zinc-400" />
-                  <span>Email</span>
+                  <Mail className="w-3.5 h-3.5 text-white/90" />
+                  <span>Get in Touch</span>
                 </>
               )}
             </button>
@@ -382,139 +373,138 @@ export default function Home() {
       <main className="max-w-6xl mx-auto px-6 py-12 md:py-20 space-y-28">
         {/* ===================== HERO SECTION ===================== */}
         <section id="about" className="scroll-mt-24">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
-            {/* Left Column: Authentic Developer Manifesto */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+            {/* Left Column: Formal Executive Summary */}
             <div className="lg:col-span-7 space-y-6">
-              {/* Status Indicator */}
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono bg-zinc-900/90 border border-white/[0.08] text-zinc-300">
-                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                <span>Open for SDE / Full-Stack Summer & Fall Internships</span>
+              {/* Eyebrow Pill */}
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs morphism-card bg-white/90 text-[#9B4A57] border border-[#9B4A57]/15 shadow-xs">
+                <span className="w-2 h-2 rounded-full bg-[#D2410D] animate-pulse" />
+                <span className="font-medium">Open for SDE / Full-Stack Summer & Fall Internships</span>
               </div>
 
               {/* Title & Introduction */}
-              <div className="space-y-3">
-                <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white leading-[1.08]">
-                  Building thoughtful web systems, FinTech engines & algorithms.
+              <div className="space-y-4">
+                <h1 className="text-4xl sm:text-5xl md:text-6xl font-heading font-bold text-[#2A1418] leading-[1.12]">
+                  Engineering elegant web products, FinTech engines & algorithms.
                 </h1>
-                <p className="text-base sm:text-lg text-zinc-400 leading-relaxed font-normal pt-1">
-                  I’m <strong className="text-zinc-100 font-semibold">Utkarsh Vidwat</strong> — a Computer Science
-                  undergraduate at NMIET with an average CGPA of <span className="text-sky-400 font-mono font-medium">8.923/10</span>.
-                  I design and engineer responsive web applications, financial market screeners, and
-                  AI-assisted utilities. I believe in writing readable, performant code with clean UI craft.
+                <p className="text-base sm:text-lg text-[#7C6A6D] leading-[1.65] font-normal">
+                  I’m <strong className="text-[#2A1418] font-semibold">Utkarsh Vidwat</strong> — a Computer Science
+                  undergraduate at NMIET holding an average CGPA of <span className="text-[#9B4A57] font-semibold">8.923/10</span>.
+                  I specialize in architecting responsive web applications, financial stock screeners, and
+                  clean, resilient user interfaces with strict engineering standards.
                 </p>
               </div>
 
               {/* Real Metrics Row */}
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
-                <div className="surface-card p-3 rounded-xl border border-white/[0.07]">
-                  <div className="text-xs font-mono text-zinc-400">Academia</div>
-                  <div className="text-xl font-bold text-white mt-1">8.92 CGPA</div>
-                  <div className="text-[11px] text-zinc-400 mt-0.5">Top Tier (2024–28)</div>
+                <div className="morphism-card p-4">
+                  <div className="eyebrow-label">Academia</div>
+                  <div className="text-2xl font-heading font-bold text-[#2A1418] mt-1">8.92</div>
+                  <div className="text-[11px] text-[#7C6A6D] mt-0.5">CGPA / 10.0 (2024–28)</div>
                 </div>
-                <div className="surface-card p-3 rounded-xl border border-white/[0.07]">
-                  <div className="text-xs font-mono text-zinc-400">Hackathons</div>
-                  <div className="text-xl font-bold text-amber-400 mt-1">Finalist</div>
-                  <div className="text-[11px] text-zinc-400 mt-0.5">.Execute · NMIMS</div>
+                <div className="morphism-card p-4">
+                  <div className="eyebrow-label">Hackathons</div>
+                  <div className="text-2xl font-heading font-bold text-[#D2410D] mt-1">Finalist</div>
+                  <div className="text-[11px] text-[#7C6A6D] mt-0.5">.Execute · NMIMS Indore</div>
                 </div>
-                <div className="surface-card p-3 rounded-xl border border-white/[0.07]">
-                  <div className="text-xs font-mono text-zinc-400">Open Source</div>
-                  <div className="text-xl font-bold text-sky-400 mt-1">25+ Repos</div>
-                  <div className="text-[11px] text-zinc-400 mt-0.5">GitHub @Utkarsh9090</div>
+                <div className="morphism-card p-4">
+                  <div className="eyebrow-label">Open Source</div>
+                  <div className="text-2xl font-heading font-bold text-[#9B4A57] mt-1">25+</div>
+                  <div className="text-[11px] text-[#7C6A6D] mt-0.5">GitHub Repositories</div>
                 </div>
-                <div className="surface-card p-3 rounded-xl border border-white/[0.07]">
-                  <div className="text-xs font-mono text-zinc-400">Industry</div>
-                  <div className="text-xl font-bold text-emerald-400 mt-1">BanksBuddy</div>
-                  <div className="text-[11px] text-zinc-400 mt-0.5">Full-Stack Intern</div>
+                <div className="morphism-card p-4">
+                  <div className="eyebrow-label">Industry</div>
+                  <div className="text-2xl font-heading font-bold text-[#7A3441] mt-1">Intern</div>
+                  <div className="text-[11px] text-[#7C6A6D] mt-0.5">BanksBuddy Web Platform</div>
                 </div>
               </div>
 
               {/* Action Buttons */}
-              <div className="flex flex-wrap items-center gap-3 pt-3">
+              <div className="flex flex-wrap items-center gap-3.5 pt-2">
                 <a
                   href="#projects"
-                  className="tactile-btn-primary px-5 py-2.5 rounded-xl text-xs flex items-center gap-2"
+                  className="btn-blood-orange px-6 py-3 text-sm flex items-center gap-2"
                 >
-                  <span>Explore Featured Projects</span>
-                  <ChevronRight className="w-3.5 h-3.5" />
+                  <span>Explore Featured Work</span>
+                  <ChevronRight className="w-4 h-4" />
                 </a>
 
                 <a
                   href={LINKEDIN_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="tactile-btn px-4 py-2.5 rounded-xl text-xs text-zinc-300 hover:text-white flex items-center gap-2 font-mono"
+                  className="btn-maroon-ghost px-5 py-3 text-sm flex items-center gap-2"
                 >
-                  <LinkedinIcon className="w-3.5 h-3.5 text-sky-400" />
+                  <LinkedinIcon className="w-4 h-4 text-[#9B4A57]" />
                   <span>LinkedIn Profile</span>
-                  <ArrowUpRight className="w-3 h-3 text-zinc-400" />
+                  <ArrowUpRight className="w-3.5 h-3.5 opacity-60" />
                 </a>
 
                 <a
                   href={GITHUB_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="tactile-btn px-4 py-2.5 rounded-xl text-xs text-zinc-300 hover:text-white flex items-center gap-2 font-mono"
+                  className="btn-maroon-ghost px-5 py-3 text-sm flex items-center gap-2"
                 >
-                  <GithubIcon className="w-3.5 h-3.5" />
-                  <span>GitHub</span>
-                  <ArrowUpRight className="w-3 h-3 text-zinc-400" />
+                  <GithubIcon className="w-4 h-4" />
+                  <span>GitHub Profile</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 opacity-60" />
                 </a>
               </div>
             </div>
 
-            {/* Right Column: Workstation ID Card with Interactive Tabs & Photo */}
+            {/* Right Column: High-Fidelity Profile Workstation Card */}
             <div className="lg:col-span-5 flex flex-col items-center">
-              {/* Interactive Card Shell */}
-              <div className="w-full max-w-sm surface-card rounded-2xl border border-white/[0.09] overflow-hidden shadow-2xl">
+              <div className="w-full max-w-sm morphism-card p-3 shadow-lg border border-[#9B4A57]/15">
                 {/* Header Switcher */}
-                <div className="p-3 bg-zinc-950/70 border-b border-white/[0.07] flex items-center justify-between">
-                  <div className="flex items-center gap-1.5">
-                    <span className="w-2.5 h-2.5 rounded-full bg-red-500/70" />
-                    <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/70" />
-                    <span className="w-2.5 h-2.5 rounded-full bg-green-500/70" />
-                    <span className="text-[11px] font-mono text-zinc-400 ml-1.5">utkarsh.identity</span>
+                <div className="p-2.5 bg-[#FBF7F6] rounded-xl border border-[#9B4A57]/10 flex items-center justify-between mb-3">
+                  <div className="flex items-center gap-2">
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#9B4A57]" />
+                    <span className="text-xs font-heading font-semibold text-[#2A1418]">
+                      Utkarsh Vidwat
+                    </span>
                   </div>
 
-                  <div className="flex items-center gap-1 bg-zinc-900 p-0.5 rounded-lg border border-white/[0.06]">
+                  <div className="flex items-center gap-1 bg-white p-0.5 rounded-lg border border-[#9B4A57]/12 shadow-xs">
                     <button
                       onClick={() => setHeroCardMode("photo")}
-                      className={`text-[10px] font-mono px-2 py-0.5 rounded ${
+                      className={`text-[11px] font-medium px-2.5 py-0.5 rounded-md transition-all ${
                         heroCardMode === "photo"
-                          ? "bg-zinc-800 text-white font-medium"
-                          : "text-zinc-400 hover:text-zinc-200"
+                          ? "bg-[#9B4A57] text-white shadow-xs"
+                          : "text-[#7C6A6D] hover:text-[#2A1418]"
                       }`}
                     >
                       Photo
                     </button>
                     <button
                       onClick={() => setHeroCardMode("commits")}
-                      className={`text-[10px] font-mono px-2 py-0.5 rounded flex items-center gap-1 ${
+                      className={`text-[11px] font-medium px-2.5 py-0.5 rounded-md flex items-center gap-1 transition-all ${
                         heroCardMode === "commits"
-                          ? "bg-zinc-800 text-white font-medium"
-                          : "text-zinc-400 hover:text-zinc-200"
+                          ? "bg-[#9B4A57] text-white shadow-xs"
+                          : "text-[#7C6A6D] hover:text-[#2A1418]"
                       }`}
                     >
-                      <GitCommit className="w-3 h-3 text-sky-400" />
+                      <GitCommit className="w-3 h-3" />
                       <span>Commits</span>
                     </button>
                     <button
                       onClick={() => setHeroCardMode("terminal")}
-                      className={`text-[10px] font-mono px-2 py-0.5 rounded flex items-center gap-1 ${
+                      className={`text-[11px] font-medium px-2.5 py-0.5 rounded-md flex items-center gap-1 transition-all ${
                         heroCardMode === "terminal"
-                          ? "bg-zinc-800 text-white font-medium"
-                          : "text-zinc-400 hover:text-zinc-200"
+                          ? "bg-[#9B4A57] text-white shadow-xs"
+                          : "text-[#7C6A6D] hover:text-[#2A1418]"
                       }`}
                     >
-                      <Terminal className="w-3 h-3 text-emerald-400" />
+                      <Terminal className="w-3 h-3" />
                       <span>CLI</span>
                     </button>
                   </div>
                 </div>
 
-                {/* Card Body by View Mode */}
+                {/* Card Body */}
                 {heroCardMode === "photo" && (
-                  <div className="p-4 space-y-3">
-                    <div className="relative aspect-[4/5] rounded-xl overflow-hidden bg-zinc-950 border border-white/[0.08]">
+                  <div className="space-y-3">
+                    <div className="relative aspect-[4/5] rounded-xl overflow-hidden bg-white border border-[#9B4A57]/10 shadow-xs">
                       <Image
                         src="/utkarsh.jpg"
                         alt="Utkarsh Vidwat"
@@ -523,54 +513,53 @@ export default function Home() {
                         className="object-cover object-center"
                         sizes="380px"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#08090d]/90 via-transparent to-transparent" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#2A1418]/85 via-transparent to-transparent" />
 
-                      <div className="absolute bottom-3 left-3 right-3 p-3 rounded-lg bg-zinc-950/85 backdrop-blur-md border border-white/[0.08]">
+                      <div className="absolute bottom-3 left-3 right-3 p-3 rounded-xl bg-white/95 backdrop-blur-md border border-[#9B4A57]/15 shadow-sm">
                         <div className="flex items-center justify-between">
                           <div>
-                            <div className="text-xs font-bold text-white flex items-center gap-1.5">
-                              <span>Utkarsh Vidwat</span>
-                              <span className="w-2 h-2 rounded-full bg-emerald-400" />
+                            <div className="text-xs font-heading font-bold text-[#2A1418]">
+                              Utkarsh Vidwat
                             </div>
-                            <div className="text-[10px] text-zinc-400 font-mono">
-                              Computer Science · 2nd Year
+                            <div className="text-[11px] text-[#7C6A6D]">
+                              B.E. Computer Science · 2nd Year
                             </div>
                           </div>
-                          <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-sky-500/10 text-sky-400 border border-sky-500/20">
+                          <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-[#9B4A57]/10 text-[#7A3441] border border-[#9B4A57]/20">
                             Pune, IN
                           </span>
                         </div>
                       </div>
                     </div>
 
-                    <div className="flex items-center justify-between text-[11px] font-mono text-zinc-400 pt-1 px-1">
-                      <span className="flex items-center gap-1.5">
-                        <GitBranch className="w-3.5 h-3.5 text-sky-400" />
+                    <div className="flex items-center justify-between text-xs text-[#7C6A6D] px-1 pt-1">
+                      <span className="flex items-center gap-1 text-[#9B4A57] font-medium">
+                        <GitBranch className="w-3.5 h-3.5" />
                         <span>branch: main</span>
                       </span>
-                      <span>B.E. 2024–2028</span>
+                      <span>NMIET · 2024–2028</span>
                     </div>
                   </div>
                 )}
 
                 {heroCardMode === "commits" && (
-                  <div className="p-4 space-y-2.5 max-h-[460px] overflow-y-auto">
-                    <div className="text-[11px] font-mono text-zinc-400 flex items-center justify-between pb-1 border-b border-white/[0.06]">
+                  <div className="p-2 space-y-2.5 max-h-[460px] overflow-y-auto">
+                    <div className="text-xs font-semibold text-[#7C6A6D] flex items-center justify-between pb-1.5 border-b border-[#9B4A57]/10">
                       <span>Recent Commits & Contributions</span>
-                      <span className="text-sky-400">@Utkarsh9090</span>
+                      <span className="text-[#9B4A57]">@Utkarsh9090</span>
                     </div>
 
                     {commitLogs.map((log) => (
                       <div
                         key={log.hash}
-                        className="p-2.5 rounded-lg bg-zinc-900/60 border border-white/[0.05] space-y-1 font-mono text-xs"
+                        className="p-3 rounded-xl bg-white border border-[#9B4A57]/10 space-y-1 shadow-xs"
                       >
-                        <div className="flex items-center justify-between text-[10px] text-zinc-400">
-                          <span className="text-sky-400">{log.repo}</span>
-                          <span className="text-zinc-400">{log.hash}</span>
+                        <div className="flex items-center justify-between text-[11px]">
+                          <span className="text-[#9B4A57] font-semibold">{log.repo}</span>
+                          <span className="text-[#7C6A6D] font-mono">{log.hash}</span>
                         </div>
-                        <p className="text-[11px] text-zinc-200 leading-tight">{log.message}</p>
-                        <div className="flex items-center justify-between text-[10px] text-zinc-400 pt-0.5">
+                        <p className="text-xs text-[#2A1418] leading-snug">{log.message}</p>
+                        <div className="flex items-center justify-between text-[10px] text-[#7C6A6D] pt-0.5">
                           <span>{log.commits}</span>
                           <span>{log.date}</span>
                         </div>
@@ -580,17 +569,17 @@ export default function Home() {
                 )}
 
                 {heroCardMode === "terminal" && (
-                  <div className="p-4 space-y-3 font-mono text-xs text-zinc-300 min-h-[440px] flex flex-col justify-between">
+                  <div className="p-3 bg-white rounded-xl border border-[#9B4A57]/10 text-xs min-h-[440px] flex flex-col justify-between shadow-xs">
                     <div className="space-y-3">
                       <div className="flex flex-wrap gap-1 pb-1">
                         {["skills", "experience", "hackathons", "academics", "contact"].map((cmd) => (
                           <button
                             key={cmd}
                             onClick={() => setTerminalInput(cmd)}
-                            className={`text-[10px] px-2 py-0.5 rounded border ${
+                            className={`text-[10px] px-2.5 py-1 rounded-lg border transition-all ${
                               terminalInput === cmd
-                                ? "bg-sky-500/20 text-sky-300 border-sky-400/50"
-                                : "bg-zinc-900 text-zinc-400 border-white/[0.06] hover:text-white"
+                                ? "bg-[#9B4A57] text-white border-[#7A3441] font-medium"
+                                : "bg-[#FBF7F6] text-[#7C6A6D] border-[#9B4A57]/15 hover:text-[#2A1418]"
                             }`}
                           >
                             --{cmd}
@@ -598,16 +587,16 @@ export default function Home() {
                         ))}
                       </div>
 
-                      <div className="space-y-1 text-[11px] leading-relaxed">
+                      <div className="space-y-1.5 text-xs leading-relaxed font-mono">
                         {terminalOutputs[terminalInput]?.map((line, idx) => (
                           <p
                             key={idx}
                             className={
                               line.startsWith("$")
-                                ? "text-sky-400 font-bold"
+                                ? "text-[#9B4A57] font-bold"
                                 : line.startsWith("🏢") || line.startsWith("🏆") || line.startsWith("🎓")
-                                ? "text-amber-300 font-medium"
-                                : "text-zinc-300"
+                                ? "text-[#D2410D] font-medium"
+                                : "text-[#2A1418]"
                             }
                           >
                             {line}
@@ -616,9 +605,9 @@ export default function Home() {
                       </div>
                     </div>
 
-                    <div className="pt-2 border-t border-white/[0.06] flex items-center justify-between text-[10px] text-zinc-400">
-                      <span>Interactive console</span>
-                      <span className="text-emerald-400 font-mono">status: ready</span>
+                    <div className="pt-2 border-t border-[#9B4A57]/10 flex items-center justify-between text-[11px] text-[#7C6A6D]">
+                      <span>Interactive developer console</span>
+                      <span className="text-[#9B4A57] font-medium">status: ready</span>
                     </div>
                   </div>
                 )}
@@ -628,35 +617,35 @@ export default function Home() {
         </section>
 
         {/* ===================== INTERACTIVE LIVE SCREENER DEMO (SWINGTRADE INDIA) ===================== */}
-        <section id="screener" className="scroll-mt-24 space-y-5">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-white/[0.07] pb-4">
+        <section id="screener" className="scroll-mt-24 space-y-6">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#9B4A57]/15 pb-4">
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-lg bg-sky-500/10 border border-sky-500/20 flex items-center justify-center text-sky-400">
-                <TrendingUp className="w-4 h-4" />
+              <div className="w-10 h-10 rounded-xl bg-[#9B4A57]/10 border border-[#9B4A57]/20 flex items-center justify-center text-[#9B4A57]">
+                <TrendingUp className="w-5 h-5" />
               </div>
               <div>
-                <h2 className="text-lg font-bold text-white tracking-tight flex items-center gap-2">
+                <h2 className="text-xl font-heading font-bold text-[#2A1418] flex items-center gap-2.5">
                   <span>Interactive Screener Engine: SwingTrade India</span>
-                  <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                  <span className="text-[10px] font-heading font-semibold px-2.5 py-0.5 rounded-full bg-[#D2410D]/10 text-[#D2410D] border border-[#D2410D]/20">
                     Live Demo
                   </span>
                 </h2>
-                <p className="text-xs text-zinc-400 font-mono">
-                  Test the proprietary 0–10 ranking logic fusing Trend, Momentum & Volume
+                <p className="text-xs text-[#7C6A6D]">
+                  Proprietary 0–10 ranking logic fusing Trend, Momentum & Volume indicators
                 </p>
               </div>
             </div>
 
-            <div className="flex items-center gap-2 text-xs font-mono">
-              <span className="text-zinc-400">Select Asset:</span>
+            <div className="flex items-center gap-2 text-xs">
+              <span className="text-[#7C6A6D] font-medium">Select Asset:</span>
               {(["RELIANCE", "TCS", "HDFCBANK", "TATAMOTORS"] as const).map((ticker) => (
                 <button
                   key={ticker}
                   onClick={() => setSelectedStock(ticker)}
-                  className={`px-2.5 py-1 rounded-lg border transition-all ${
+                  className={`px-3 py-1.5 rounded-lg border text-xs font-semibold transition-all ${
                     selectedStock === ticker
-                      ? "bg-sky-500/20 border-sky-400/60 text-sky-300 font-bold"
-                      : "bg-zinc-900 border-white/[0.07] text-zinc-400 hover:text-white"
+                      ? "bg-[#9B4A57] border-[#7A3441] text-white shadow-xs"
+                      : "bg-white border-[#9B4A57]/15 text-[#7C6A6D] hover:text-[#2A1418]"
                   }`}
                 >
                   {ticker}
@@ -665,74 +654,76 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Interactive Screener Output Box */}
-          <div className="surface-card p-6 rounded-2xl border border-white/[0.08] grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
-            <div className="md:col-span-4 space-y-3">
+          {/* Screener Interactive Output Card */}
+          <div className="morphism-card p-7 grid grid-cols-1 md:grid-cols-12 gap-8 items-center border border-[#9B4A57]/15">
+            <div className="md:col-span-4 space-y-4">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-mono text-zinc-400">NSE Index Ticker</span>
-                <span className="text-xs font-mono text-emerald-400">Status: Validated</span>
+                <span className="eyebrow-label">NSE Ticker Analysis</span>
+                <span className="text-xs font-medium text-[#9B4A57] bg-[#9B4A57]/10 px-2 py-0.5 rounded-full">
+                  Status: Validated
+                </span>
               </div>
-              <div className="text-2xl font-bold text-white font-mono flex items-center gap-2">
+              <div className="text-3xl font-heading font-bold text-[#2A1418] flex items-center gap-3">
                 <span>{selectedStock}</span>
-                <span className="text-sm font-normal text-zinc-400">
+                <span className="text-lg font-normal text-[#7C6A6D]">
                   ₹{stockData[selectedStock].price.toLocaleString()}
                 </span>
               </div>
-              <p className="text-xs text-zinc-400">
+              <p className="text-xs text-[#7C6A6D] leading-relaxed">
                 Detected Pattern:{" "}
-                <strong className="text-zinc-200">{stockData[selectedStock].pattern}</strong>
+                <strong className="text-[#2A1418] font-semibold">{stockData[selectedStock].pattern}</strong>
               </p>
 
-              <div className="p-3 rounded-xl bg-zinc-950/80 border border-white/[0.06] space-y-1">
-                <div className="flex items-center justify-between text-xs font-mono">
-                  <span className="text-zinc-400">Composite Score</span>
-                  <span className="text-sky-400 font-bold text-base">
+              <div className="p-4 rounded-xl bg-white border border-[#9B4A57]/12 shadow-xs space-y-2">
+                <div className="flex items-center justify-between text-xs font-medium">
+                  <span className="text-[#7C6A6D]">Composite Signal Score</span>
+                  <span className="text-[#D2410D] font-heading font-bold text-lg">
                     {stockData[selectedStock].score} / 10.0
                   </span>
                 </div>
-                <div className="w-full bg-zinc-800 rounded-full h-1.5 overflow-hidden">
+                <div className="w-full bg-[#FBF7F6] rounded-full h-2 overflow-hidden border border-[#9B4A57]/10">
                   <div
-                    className="bg-gradient-to-r from-sky-400 to-indigo-500 h-1.5 rounded-full transition-all duration-300"
+                    className="bg-gradient-to-r from-[#9B4A57] to-[#D2410D] h-2 rounded-full transition-all duration-300"
                     style={{ width: `${(stockData[selectedStock].score / 10) * 100}%` }}
                   />
                 </div>
               </div>
             </div>
 
-            <div className="md:col-span-8 grid grid-cols-2 sm:grid-cols-3 gap-3">
-              <div className="p-3 rounded-xl bg-zinc-900/60 border border-white/[0.06]">
-                <div className="text-[11px] font-mono text-zinc-400">Trend Status</div>
-                <div className="text-xs font-semibold text-white mt-1">
+            <div className="md:col-span-8 grid grid-cols-2 sm:grid-cols-3 gap-3.5">
+              <div className="p-4 rounded-xl bg-white border border-[#9B4A57]/12 shadow-xs">
+                <div className="eyebrow-label">Trend Direction</div>
+                <div className="text-sm font-semibold text-[#2A1418] mt-1.5">
                   {stockData[selectedStock].trend}
                 </div>
               </div>
-              <div className="p-3 rounded-xl bg-zinc-900/60 border border-white/[0.06]">
-                <div className="text-[11px] font-mono text-zinc-400">RSI Momentum</div>
-                <div className="text-xs font-semibold text-white mt-1">
+              <div className="p-4 rounded-xl bg-white border border-[#9B4A57]/12 shadow-xs">
+                <div className="eyebrow-label">RSI Momentum</div>
+                <div className="text-sm font-semibold text-[#2A1418] mt-1.5">
                   {stockData[selectedStock].momentum} / 100
                 </div>
               </div>
-              <div className="p-3 rounded-xl bg-zinc-900/60 border border-white/[0.06]">
-                <div className="text-[11px] font-mono text-zinc-400">Volume Surge</div>
-                <div className="text-xs font-semibold text-white mt-1">
+              <div className="p-4 rounded-xl bg-white border border-[#9B4A57]/12 shadow-xs">
+                <div className="eyebrow-label">Volume Anomaly</div>
+                <div className="text-sm font-semibold text-[#2A1418] mt-1.5">
                   {stockData[selectedStock].volumeRatio}
                 </div>
               </div>
-              <div className="p-3 rounded-xl bg-zinc-900/60 border border-white/[0.06]">
-                <div className="text-[11px] font-mono text-zinc-400">Target Level</div>
-                <div className="text-xs font-bold text-emerald-400 font-mono mt-1">
+              <div className="p-4 rounded-xl bg-white border border-[#9B4A57]/12 shadow-xs">
+                <div className="eyebrow-label">Target Level</div>
+                <div className="text-sm font-bold text-[#D2410D] font-heading mt-1.5">
                   ₹{stockData[selectedStock].target}
                 </div>
               </div>
-              <div className="p-3 rounded-xl bg-zinc-900/60 border border-white/[0.06]">
-                <div className="text-[11px] font-mono text-zinc-400">Stop Loss (ATR)</div>
-                <div className="text-xs font-bold text-rose-400 font-mono mt-1">
+              <div className="p-4 rounded-xl bg-white border border-[#9B4A57]/12 shadow-xs">
+                <div className="eyebrow-label">Stop Loss (ATR)</div>
+                <div className="text-sm font-bold text-[#7A3441] font-heading mt-1.5">
                   ₹{stockData[selectedStock].stopLoss}
                 </div>
               </div>
-              <div className="p-3 rounded-xl bg-zinc-900/60 border border-white/[0.06]">
-                <div className="text-[11px] font-mono text-zinc-400">Entry Trigger</div>
-                <div className="text-xs font-bold text-sky-400 font-mono mt-1">
+              <div className="p-4 rounded-xl bg-white border border-[#9B4A57]/12 shadow-xs">
+                <div className="eyebrow-label">Entry Trigger</div>
+                <div className="text-sm font-bold text-[#9B4A57] font-heading mt-1.5">
                   ₹{stockData[selectedStock].entry}
                 </div>
               </div>
@@ -742,31 +733,30 @@ export default function Home() {
 
         {/* ===================== PROJECTS & COLLABORATIONS ===================== */}
         <section id="projects" className="scroll-mt-24 space-y-6">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-white/[0.07] pb-4">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#9B4A57]/15 pb-4">
             <div>
-              <h2 className="text-2xl font-bold text-white tracking-tight flex items-center gap-2">
-                <span>Featured Systems & Collaborations</span>
+              <h2 className="text-2xl font-heading font-bold text-[#2A1418] tracking-tight">
+                Featured Systems & Collaborations
               </h2>
-              <p className="text-xs text-zinc-400 font-mono mt-0.5">
-                Core applications as Lead Author and open-source team collaborations with commit metrics
+              <p className="text-xs text-[#7C6A6D] mt-0.5">
+                Flagship production software engineered with modern stacks and verifiable commits
               </p>
             </div>
 
             {/* Filter Tabs */}
-            <div className="flex flex-wrap gap-1.5 font-mono text-xs">
+            <div className="flex flex-wrap gap-2 text-xs">
               {[
-                { id: "all", label: "All (3)" },
+                { id: "all", label: "All Systems (3)" },
                 { id: "lead", label: "Lead Author (2)" },
                 { id: "collab", label: "Collaborations (1)" },
-                { id: "fintech", label: "FinTech & Web (3)" },
               ].map((tab) => (
                 <button
                   key={tab.id}
                   onClick={() => setProjectFilter(tab.id as typeof projectFilter)}
-                  className={`px-3 py-1.5 rounded-lg border transition-all ${
+                  className={`px-3.5 py-1.5 rounded-xl border font-medium transition-all ${
                     projectFilter === tab.id
-                      ? "bg-sky-500/20 border-sky-400/50 text-sky-300 font-semibold"
-                      : "bg-zinc-900/80 border-white/[0.06] text-zinc-400 hover:text-white"
+                      ? "bg-[#9B4A57] border-[#7A3441] text-white shadow-xs"
+                      : "bg-white border-[#9B4A57]/15 text-[#7C6A6D] hover:text-[#2A1418]"
                   }`}
                 >
                   {tab.label}
@@ -775,68 +765,68 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Projects Bento Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {/* Projects Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {filteredProjects.map((p) => {
               const Icon = p.icon;
               return (
                 <div
                   key={p.id}
-                  className="surface-card surface-card-hover rounded-2xl p-6 flex flex-col justify-between border border-white/[0.08]"
+                  className="morphism-card p-6 flex flex-col justify-between border border-[#9B4A57]/15 hover:border-[#9B4A57]/35"
                 >
                   <div className="space-y-4">
                     <div className="flex items-start justify-between gap-3">
-                      <div className="flex items-center gap-2.5">
-                        <div className="w-9 h-9 rounded-xl bg-zinc-900 border border-white/[0.08] flex items-center justify-center text-sky-400">
-                          <Icon className="w-4 h-4" />
+                      <div className="flex items-center gap-3">
+                        <div className="w-10 h-10 rounded-xl bg-[#FBF7F6] border border-[#9B4A57]/15 flex items-center justify-center text-[#9B4A57] shadow-xs">
+                          <Icon className="w-5 h-5" />
                         </div>
                         <div>
-                          <h3 className="text-base font-bold text-white flex items-center gap-2">
-                            <span>{p.title}</span>
+                          <h3 className="text-base font-heading font-bold text-[#2A1418]">
+                            {p.title}
                           </h3>
                           <span
-                            className={`text-[10px] font-mono px-2 py-0.5 rounded ${
+                            className={`text-[10px] font-medium px-2 py-0.5 rounded-full ${
                               p.roleType === "lead"
-                                ? "bg-sky-500/10 text-sky-300 border border-sky-500/20"
-                                : "bg-purple-500/10 text-purple-300 border border-purple-500/20"
+                                ? "bg-[#D2410D]/10 text-[#D2410D] border border-[#D2410D]/20"
+                                : "bg-[#9B4A57]/10 text-[#7A3441] border border-[#9B4A57]/20"
                             }`}
                           >
                             {p.role}
                           </span>
                         </div>
                       </div>
-
-                      <div className="flex items-center gap-1 font-mono text-[10px] text-zinc-400 bg-zinc-900/90 px-2 py-1 rounded-md border border-white/[0.06]">
-                        <GitCommit className="w-3 h-3 text-sky-400" />
-                        <span>{p.gitBadge}</span>
-                      </div>
                     </div>
 
-                    <p className="text-xs text-zinc-400 leading-normal font-mono">{p.tagline}</p>
-                    <p className="text-sm text-zinc-300 leading-relaxed">{p.description}</p>
+                    <div className="flex items-center gap-1.5 text-[10px] text-[#7C6A6D] bg-[#FBF7F6] px-2.5 py-1 rounded-md border border-[#9B4A57]/10 w-fit">
+                      <GitCommit className="w-3.5 h-3.5 text-[#9B4A57]" />
+                      <span>{p.gitBadge}</span>
+                    </div>
+
+                    <p className="text-xs text-[#9B4A57] font-medium leading-normal">{p.tagline}</p>
+                    <p className="text-xs text-[#7C6A6D] leading-relaxed">{p.description}</p>
 
                     {p.collabNote && (
-                      <div className="text-[11px] font-mono text-purple-300 bg-purple-950/30 p-2 rounded-lg border border-purple-800/30">
+                      <div className="text-[11px] text-[#7A3441] bg-[#9B4A57]/6 p-2 rounded-lg border border-[#9B4A57]/15">
                         ⚡ {p.collabNote}
                       </div>
                     )}
 
                     <div className="space-y-1.5 pt-1">
                       {p.highlights.map((h, idx) => (
-                        <div key={idx} className="flex items-start gap-2 text-xs text-zinc-400">
-                          <span className="text-sky-400 font-bold mt-0.5">·</span>
+                        <div key={idx} className="flex items-start gap-2 text-xs text-[#7C6A6D]">
+                          <span className="text-[#9B4A57] font-bold mt-0.5">·</span>
                           <span>{h}</span>
                         </div>
                       ))}
                     </div>
                   </div>
 
-                  <div className="pt-5 mt-5 border-t border-white/[0.06] flex items-center justify-between">
+                  <div className="pt-5 mt-5 border-t border-[#9B4A57]/10 flex items-center justify-between">
                     <div className="flex flex-wrap gap-1.5">
-                      {p.tech.map((t) => (
+                      {p.tech.slice(0, 3).map((t) => (
                         <span
                           key={t}
-                          className="text-[11px] font-mono px-2 py-0.5 rounded bg-zinc-900 text-zinc-300 border border-white/[0.06]"
+                          className="text-[11px] px-2 py-0.5 rounded-md bg-white text-[#7C6A6D] border border-[#9B4A57]/12 shadow-xs"
                         >
                           {t}
                         </span>
@@ -847,10 +837,10 @@ export default function Home() {
                       href={p.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="tactile-btn p-2 rounded-lg text-zinc-300 hover:text-white shrink-0 ml-3"
+                      className="p-2 rounded-lg bg-white border border-[#9B4A57]/15 text-[#7C6A6D] hover:text-[#9B4A57] hover:border-[#9B4A57]/40 shadow-xs transition-all"
                       title="Inspect Code"
                     >
-                      <ArrowUpRight className="w-3.5 h-3.5" />
+                      <ArrowUpRight className="w-4 h-4" />
                     </a>
                   </div>
                 </div>
@@ -861,48 +851,50 @@ export default function Home() {
 
         {/* ===================== EXPERIENCE & ACADEMICS ===================== */}
         <section id="experience" className="scroll-mt-24 space-y-6">
-          <div className="border-b border-white/[0.07] pb-4">
-            <h2 className="text-2xl font-bold text-white tracking-tight">Experience & Track Record</h2>
-            <p className="text-xs text-zinc-400 font-mono mt-0.5">
-              Work history, collegiate education & competitive hackathon timeline
+          <div className="border-b border-[#9B4A57]/15 pb-4">
+            <h2 className="text-2xl font-heading font-bold text-[#2A1418] tracking-tight">
+              Experience & Academic Track Record
+            </h2>
+            <p className="text-xs text-[#7C6A6D] mt-0.5">
+              Industry software engineering internship, national collegiate honors, and degree progress
             </p>
           </div>
 
           <div className="space-y-4">
             {/* BanksBuddy Internship */}
-            <div className="surface-card p-6 rounded-2xl border border-white/[0.08] relative">
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-white/[0.06] pb-3 mb-3">
+            <div className="morphism-card p-6 border border-[#9B4A57]/15">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#9B4A57]/10 pb-3 mb-3">
                 <div>
                   <div className="flex items-center gap-2 flex-wrap">
-                    <h3 className="text-lg font-bold text-white">BanksBuddy</h3>
-                    <span className="text-xs font-mono px-2.5 py-0.5 rounded bg-sky-500/10 text-sky-400 border border-sky-500/20">
+                    <h3 className="text-lg font-heading font-bold text-[#2A1418]">BanksBuddy</h3>
+                    <span className="text-xs px-2.5 py-0.5 rounded-full bg-[#9B4A57]/10 text-[#7A3441] border border-[#9B4A57]/20 font-medium">
                       Full-Stack Web Intern
                     </span>
                   </div>
-                  <p className="text-xs text-zinc-400 font-mono mt-0.5">
+                  <p className="text-xs text-[#7C6A6D] mt-0.5">
                     Digital Banking Assistance Platform
                   </p>
                 </div>
-                <div className="text-xs font-mono text-zinc-400 bg-zinc-900 px-2.5 py-1 rounded-md border border-white/[0.06] w-fit">
+                <div className="text-xs text-[#7C6A6D] bg-[#FBF7F6] px-3 py-1 rounded-md border border-[#9B4A57]/10 w-fit">
                   Dec 2025 — Feb 2026
                 </div>
               </div>
 
-              <ul className="space-y-2 text-sm text-zinc-300">
+              <ul className="space-y-2 text-sm text-[#7C6A6D] leading-relaxed">
                 <li className="flex items-start gap-2">
-                  <span className="text-sky-400 font-mono font-bold">›</span>
+                  <span className="text-[#9B4A57] font-bold">›</span>
                   <span>
                     Developed responsive digital banking customer support interface using <strong>React</strong> with <strong>Vite + Bun runtime</strong>.
                   </span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-sky-400 font-mono font-bold">›</span>
+                  <span className="text-[#9B4A57] font-bold">›</span>
                   <span>
                     Integrated backend session authentication, live ticket data listeners, and cloud deployment pipelines via <strong>Node.js</strong> and <strong>Firebase</strong>.
                   </span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-sky-400 font-mono font-bold">›</span>
+                  <span className="text-[#9B4A57] font-bold">›</span>
                   <span>
                     Managed DNS record configuration and custom domain mapping using <strong>GoDaddy</strong> and <strong>Vercel</strong> edge networking.
                   </span>
@@ -910,61 +902,61 @@ export default function Home() {
               </ul>
             </div>
 
-            {/* .Execute - NMIMS Indore Hackathon */}
-            <div className="surface-card p-6 rounded-2xl border border-white/[0.08] relative">
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-white/[0.06] pb-3 mb-3">
+            {/* .Execute NMIMS Indore */}
+            <div className="morphism-card p-6 border border-[#9B4A57]/15">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#9B4A57]/10 pb-3 mb-3">
                 <div>
                   <div className="flex items-center gap-2 flex-wrap">
-                    <h3 className="text-lg font-bold text-white">.Execute — NMIMS Indore</h3>
-                    <span className="text-xs font-mono px-2.5 py-0.5 rounded bg-amber-500/10 text-amber-300 border border-amber-500/20">
+                    <h3 className="text-lg font-heading font-bold text-[#2A1418]">.Execute — NMIMS Indore</h3>
+                    <span className="text-xs px-2.5 py-0.5 rounded-full bg-[#D2410D]/10 text-[#D2410D] border border-[#D2410D]/20 font-medium">
                       National Level Hackathon Finalist
                     </span>
                   </div>
-                  <p className="text-xs text-zinc-400 font-mono mt-0.5">
+                  <p className="text-xs text-[#7C6A6D] mt-0.5">
                     Flagship national collegiate hackathon by NMIMS MPSTME, Indore
                   </p>
                 </div>
-                <div className="text-xs font-mono text-zinc-400 bg-zinc-900 px-2.5 py-1 rounded-md border border-white/[0.06] w-fit">
+                <div className="text-xs text-[#7C6A6D] bg-[#FBF7F6] px-3 py-1 rounded-md border border-[#9B4A57]/10 w-fit">
                   National Competitions · 2025–2026
                 </div>
               </div>
 
-              <ul className="space-y-2 text-sm text-zinc-300">
+              <ul className="space-y-2 text-sm text-[#7C6A6D] leading-relaxed">
                 <li className="flex items-start gap-2">
-                  <span className="text-amber-400 font-mono font-bold">›</span>
+                  <span className="text-[#D2410D] font-bold">›</span>
                   <span>
                     National Level Hackathon Finalist at <strong>.Execute (NMIMS Indore)</strong> representing collegiate engineering team.
                   </span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-amber-400 font-mono font-bold">›</span>
+                  <span className="text-[#D2410D] font-bold">›</span>
                   <span>
-                    Active competitive contributor across major hackathons: <strong>.Execute (NMIMS Indore)</strong>, <strong>INNOHACK 2.0</strong>, <strong>Techathon 3.0</strong>, and <strong>TENET</strong>.
+                    Active competitive contributor across major hackathons: <strong>.Execute (NMIMS Indore)</strong>, <strong>INNOHACK 2.0</strong>, <strong>Techathon 3.0</strong>, <strong>TENET</strong>, and <strong>SIH 2025</strong>.
                   </span>
                 </li>
               </ul>
             </div>
 
             {/* Education Degree */}
-            <div className="surface-card p-6 rounded-2xl border border-white/[0.08] relative">
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-white/[0.06] pb-3 mb-3">
+            <div className="morphism-card p-6 border border-[#9B4A57]/15">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#9B4A57]/10 pb-3 mb-3">
                 <div>
                   <div className="flex items-center gap-2 flex-wrap">
-                    <h3 className="text-lg font-bold text-white">B.E. in Computer Science and Engineering</h3>
-                    <span className="text-xs font-mono px-2.5 py-0.5 rounded bg-sky-500/10 text-sky-400 border border-sky-500/20 font-bold">
+                    <h3 className="text-lg font-heading font-bold text-[#2A1418]">B.E. in Computer Science and Engineering</h3>
+                    <span className="text-xs px-2.5 py-0.5 rounded-full bg-[#9B4A57]/10 text-[#7A3441] border border-[#9B4A57]/20 font-semibold">
                       Avg. CGPA: 8.923 / 10.0
                     </span>
                   </div>
-                  <p className="text-xs text-zinc-400 font-mono mt-0.5">
+                  <p className="text-xs text-[#7C6A6D] mt-0.5">
                     Nutan Maharashtra Institute of Engineering and Technology, Talegaon Dabhade, Maharashtra
                   </p>
                 </div>
-                <div className="text-xs font-mono text-zinc-400 bg-zinc-900 px-2.5 py-1 rounded-md border border-white/[0.06] w-fit">
+                <div className="text-xs text-[#7C6A6D] bg-[#FBF7F6] px-3 py-1 rounded-md border border-[#9B4A57]/10 w-fit">
                   2024 — 2028
                 </div>
               </div>
-              <p className="text-sm text-zinc-300">
-                Specializing in Advanced Data Structures, Algorithms, Software Engineering, and Database Architecture.
+              <p className="text-sm text-[#7C6A6D] leading-relaxed">
+                Focus on Advanced Data Structures, Object-Oriented Software Design, Financial Systems, and Database Architectures.
               </p>
             </div>
           </div>
@@ -972,10 +964,12 @@ export default function Home() {
 
         {/* ===================== TECHNICAL ARSENAL ===================== */}
         <section id="skills" className="scroll-mt-24 space-y-6">
-          <div className="border-b border-white/[0.07] pb-4">
-            <h2 className="text-2xl font-bold text-white tracking-tight">Technical Arsenal</h2>
-            <p className="text-xs text-zinc-400 font-mono mt-0.5">
-              Categorized language proficiencies, development stacks, and analytical libraries
+          <div className="border-b border-[#9B4A57]/15 pb-4">
+            <h2 className="text-2xl font-heading font-bold text-[#2A1418] tracking-tight">
+              Technical Arsenal
+            </h2>
+            <p className="text-xs text-[#7C6A6D] mt-0.5">
+              Curated language proficiencies, development frameworks, and analytical toolsets
             </p>
           </div>
 
@@ -983,19 +977,17 @@ export default function Home() {
             {skillsCategories.map((cat) => (
               <div
                 key={cat.title}
-                className="surface-card p-5 rounded-2xl border border-white/[0.07] hover:border-white/[0.14] transition-all"
+                className="morphism-card p-5 border border-[#9B4A57]/15"
               >
                 <div className="flex items-center gap-2 mb-3">
-                  <span className="w-1.5 h-1.5 rounded-full bg-sky-400" />
-                  <h3 className="font-mono text-xs font-semibold text-white uppercase tracking-wider">
-                    {cat.title}
-                  </h3>
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#D2410D]" />
+                  <h3 className="eyebrow-label">{cat.title}</h3>
                 </div>
                 <div className="flex flex-wrap gap-1.5">
                   {cat.skills.map((skill) => (
                     <span
                       key={skill}
-                      className="text-xs font-mono px-2.5 py-1 rounded-lg bg-zinc-900 text-zinc-300 border border-white/[0.06]"
+                      className="text-xs px-2.5 py-1 rounded-lg bg-white text-[#2A1418] border border-[#9B4A57]/12 shadow-xs"
                     >
                       {skill}
                     </span>
@@ -1009,23 +1001,20 @@ export default function Home() {
         {/* ===================== PRE-FOOTER INTERACTIVE CTA ===================== */}
         <section
           id="contact"
-          className="scroll-mt-24 relative rounded-3xl overflow-hidden border border-white/[0.1] bg-gradient-to-b from-zinc-900/90 via-[#0a0c13] to-[#08090d] p-8 sm:p-14 shadow-2xl"
+          className="scroll-mt-24 relative rounded-3xl overflow-hidden border border-[#9B4A57]/20 bg-gradient-to-b from-white via-[#FBF7F6] to-white p-8 sm:p-14 shadow-lg text-center"
         >
-          {/* Subtle background glow */}
-          <div className="pointer-events-none absolute -top-24 right-1/4 w-96 h-96 bg-sky-500/10 blur-[100px] rounded-full" />
-          
-          <div className="relative z-10 max-w-3xl mx-auto space-y-8 text-center">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono bg-zinc-900/90 border border-white/[0.09] text-zinc-300">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+          <div className="relative z-10 max-w-3xl mx-auto space-y-8">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs morphism-card bg-white text-[#9B4A57] border border-[#9B4A57]/20 shadow-xs">
+              <span className="w-2 h-2 rounded-full bg-[#D2410D] animate-pulse" />
               <span>Available for Summer & Fall 2026 Internships</span>
             </div>
 
             <div className="space-y-3">
-              <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
+              <h2 className="text-3xl sm:text-5xl font-heading font-bold text-[#2A1418] tracking-tight leading-tight">
                 Let’s engineer something exceptional together.
               </h2>
-              <p className="text-sm sm:text-base text-zinc-400 max-w-xl mx-auto leading-relaxed">
-                Whether you’re looking for a passionate software engineering intern, want to collaborate on FinTech & stock screener systems, or discuss hackathons — let’s connect.
+              <p className="text-sm sm:text-base text-[#7C6A6D] max-w-xl mx-auto leading-relaxed">
+                Whether you’re recruiting for a software engineering internship, want to collaborate on FinTech stock screener algorithms, or discuss hackathons — I’m always open to talking tech.
               </p>
             </div>
 
@@ -1033,123 +1022,127 @@ export default function Home() {
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 text-left pt-2">
               <button
                 onClick={copyEmail}
-                className="surface-card p-4 rounded-xl border border-white/[0.08] hover:border-sky-500/40 group transition-all"
+                className="morphism-card p-4 border border-[#9B4A57]/15 hover:border-[#9B4A57]/35 group transition-all"
               >
-                <div className="flex items-center justify-between text-xs font-mono text-zinc-400 mb-2">
-                  <span>Direct Email</span>
-                  <CopyIndicator copied={copied} />
+                <div className="flex items-center justify-between text-xs text-[#7C6A6D] mb-2">
+                  <span className="font-heading font-semibold">Direct Email</span>
+                  {copied ? (
+                    <span className="text-[#D2410D] text-[11px] font-semibold flex items-center gap-1">
+                      <Check className="w-3 h-3" />
+                      Copied
+                    </span>
+                  ) : (
+                    <Copy className="w-3.5 h-3.5 text-[#9B4A57] group-hover:scale-105 transition-transform" />
+                  )}
                 </div>
-                <div className="text-xs sm:text-sm font-semibold text-white group-hover:text-sky-400 transition-colors truncate">
+                <div className="text-xs sm:text-sm font-semibold text-[#2A1418] group-hover:text-[#9B4A57] transition-colors truncate">
                   {EMAIL}
                 </div>
-                <div className="text-[10px] text-zinc-400 font-mono mt-1">Click to copy address</div>
+                <div className="text-[10px] text-[#7C6A6D] mt-1">Click to copy address</div>
               </button>
 
               <a
                 href={LINKEDIN_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="surface-card p-4 rounded-xl border border-white/[0.08] hover:border-sky-500/40 group transition-all"
+                className="morphism-card p-4 border border-[#9B4A57]/15 hover:border-[#9B4A57]/35 group transition-all"
               >
-                <div className="flex items-center justify-between text-xs font-mono text-zinc-400 mb-2">
-                  <span>LinkedIn Network</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 text-zinc-400 group-hover:text-sky-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                <div className="flex items-center justify-between text-xs text-[#7C6A6D] mb-2">
+                  <span className="font-heading font-semibold">LinkedIn Network</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 text-[#9B4A57] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                 </div>
-                <div className="text-xs sm:text-sm font-semibold text-white group-hover:text-sky-400 transition-colors truncate">
+                <div className="text-xs sm:text-sm font-semibold text-[#2A1418] group-hover:text-[#9B4A57] transition-colors truncate">
                   /in/utkarsh-vidwat
                 </div>
-                <div className="text-[10px] text-zinc-400 font-mono mt-1">Connect professionally</div>
+                <div className="text-[10px] text-[#7C6A6D] mt-1">Connect professionally</div>
               </a>
 
               <a
                 href={`tel:${PHONE}`}
-                className="surface-card p-4 rounded-xl border border-white/[0.08] hover:border-sky-500/40 group transition-all"
+                className="morphism-card p-4 border border-[#9B4A57]/15 hover:border-[#9B4A57]/35 group transition-all"
               >
-                <div className="flex items-center justify-between text-xs font-mono text-zinc-400 mb-2">
-                  <span>Direct Phone</span>
-                  <Phone className="w-3.5 h-3.5 text-zinc-400 group-hover:text-sky-400 transition-colors" />
+                <div className="flex items-center justify-between text-xs text-[#7C6A6D] mb-2">
+                  <span className="font-heading font-semibold">Direct Telephone</span>
+                  <Phone className="w-3.5 h-3.5 text-[#9B4A57] group-hover:scale-105 transition-transform" />
                 </div>
-                <div className="text-xs sm:text-sm font-semibold text-white group-hover:text-sky-400 transition-colors">
+                <div className="text-xs sm:text-sm font-semibold text-[#2A1418] group-hover:text-[#9B4A57] transition-colors">
                   {PHONE}
                 </div>
-                <div className="text-[10px] text-zinc-400 font-mono mt-1">IST (UTC +5:30)</div>
+                <div className="text-[10px] text-[#7C6A6D] mt-1">IST (UTC +5:30)</div>
               </a>
             </div>
 
             {/* Quick Live Context Bar */}
-            <div className="flex flex-wrap items-center justify-center gap-6 pt-2 text-xs font-mono text-zinc-400 border-t border-white/[0.06]">
+            <div className="flex flex-wrap items-center justify-center gap-6 pt-3 text-xs text-[#7C6A6D] border-t border-[#9B4A57]/12">
               <span className="flex items-center gap-1.5">
-                <MapPin className="w-3.5 h-3.5 text-sky-400" />
+                <MapPin className="w-3.5 h-3.5 text-[#9B4A57]" />
                 <span>Pune, Maharashtra, India</span>
               </span>
               <span className="flex items-center gap-1.5">
-                <GraduationCap className="w-3.5 h-3.5 text-sky-400" />
-                <span>CGPA 8.923 / 10 · NMIET</span>
+                <GraduationCap className="w-3.5 h-3.5 text-[#9B4A57]" />
+                <span>CGPA 8.923 / 10.0 · NMIET</span>
               </span>
               <span className="flex items-center gap-1.5">
-                <Activity className="w-3.5 h-3.5 text-emerald-400" />
-                <span>Status: Active</span>
+                <Activity className="w-3.5 h-3.5 text-[#D2410D]" />
+                <span>Status: Actively Building</span>
               </span>
             </div>
           </div>
         </section>
 
-        {/* ===================== SENIOR UI CRAFT MULTI-COLUMN FOOTER ===================== */}
-        <footer className="pt-8 pb-12 border-t border-white/[0.08] space-y-12 relative overflow-hidden">
-          {/* Subtle Background Watermark */}
-          <div className="pointer-events-none absolute -bottom-10 left-1/2 -translate-x-1/2 text-[120px] sm:text-[180px] font-black tracking-tighter text-white/[0.015] select-none whitespace-nowrap">
+        {/* ===================== MORPHISM MULTI-COLUMN FOOTER ===================== */}
+        <footer className="pt-8 pb-12 border-t border-[#9B4A57]/15 space-y-12 relative overflow-hidden">
+          {/* Subtle Watermark */}
+          <div className="pointer-events-none absolute -bottom-10 left-1/2 -translate-x-1/2 text-[110px] sm:text-[170px] font-heading font-black tracking-tighter text-[#9B4A57]/[0.03] select-none whitespace-nowrap">
             UTKARSH VIDWAT
           </div>
 
-          {/* 4-Column Navigation & Identity Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 text-xs font-mono relative z-10">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 text-xs relative z-10">
             {/* Col 1: Identity */}
             <div className="md:col-span-5 space-y-3">
               <div className="flex items-center gap-2.5">
-                <span className="w-7 h-7 rounded-lg bg-zinc-900 border border-white/10 flex items-center justify-center font-bold text-white text-xs">
+                <span className="w-8 h-8 rounded-xl bg-white border border-[#9B4A57]/20 flex items-center justify-center font-heading font-bold text-[#9B4A57] text-xs shadow-xs">
                   UV
                 </span>
-                <span className="font-bold text-sm tracking-tight text-white font-sans">
+                <span className="font-heading font-bold text-sm tracking-tight text-[#2A1418]">
                   Utkarsh Vidwat
                 </span>
               </div>
-              <p className="text-zinc-400 text-xs font-sans leading-relaxed max-w-sm">
-                Computer Science undergraduate specializing in full-stack architecture, FinTech market analytics, and high-performance web systems. 2-time National Hackathon Finalist.
+              <p className="text-[#7C6A6D] text-xs leading-relaxed max-w-sm">
+                Computer Science undergraduate specializing in full-stack architecture, FinTech market screeners, and high-performance web systems. National Hackathon Finalist.
               </p>
-              <div className="pt-2 flex items-center gap-2 text-[11px] text-zinc-400">
-                <span className="w-2 h-2 rounded-full bg-emerald-400" />
+              <div className="pt-1 flex items-center gap-2 text-[11px] text-[#7C6A6D]">
+                <span className="w-2 h-2 rounded-full bg-[#D2410D]" />
                 <span>git status: clean · main branch</span>
               </div>
             </div>
 
             {/* Col 2: Navigation */}
             <div className="md:col-span-2 space-y-2.5">
-              <div className="font-semibold text-white uppercase tracking-wider text-[11px]">
-                Navigation
-              </div>
-              <ul className="space-y-1.5 text-zinc-400">
+              <div className="eyebrow-label">Navigation</div>
+              <ul className="space-y-1.5 text-[#7C6A6D]">
                 <li>
-                  <a href="#about" className="hover:text-white transition-colors">
+                  <a href="#about" className="hover:text-[#2A1418] transition-colors">
                     About
                   </a>
                 </li>
                 <li>
-                  <a href="#screener" className="hover:text-white transition-colors">
+                  <a href="#screener" className="hover:text-[#2A1418] transition-colors">
                     Live Screener
                   </a>
                 </li>
                 <li>
-                  <a href="#projects" className="hover:text-white transition-colors">
-                    Featured Work
+                  <a href="#projects" className="hover:text-[#2A1418] transition-colors">
+                    Featured Systems
                   </a>
                 </li>
                 <li>
-                  <a href="#experience" className="hover:text-white transition-colors">
+                  <a href="#experience" className="hover:text-[#2A1418] transition-colors">
                     Experience
                   </a>
                 </li>
                 <li>
-                  <a href="#skills" className="hover:text-white transition-colors">
+                  <a href="#skills" className="hover:text-[#2A1418] transition-colors">
                     Arsenal
                   </a>
                 </li>
@@ -1158,26 +1151,24 @@ export default function Home() {
 
             {/* Col 3: Flagship Systems */}
             <div className="md:col-span-3 space-y-2.5">
-              <div className="font-semibold text-white uppercase tracking-wider text-[11px]">
-                Flagship Systems
-              </div>
-              <ul className="space-y-1.5 text-zinc-400">
+              <div className="eyebrow-label">Flagship Systems</div>
+              <ul className="space-y-1.5 text-[#7C6A6D]">
                 <li>
-                  <a href="#screener" className="hover:text-white transition-colors flex items-center gap-1.5">
+                  <a href="#screener" className="hover:text-[#2A1418] transition-colors flex items-center gap-1.5">
                     <span>SwingTrade India</span>
-                    <span className="text-[9px] px-1.5 rounded bg-sky-500/10 text-sky-400">Lead</span>
+                    <span className="text-[9px] px-1.5 py-0.5 rounded bg-[#D2410D]/10 text-[#D2410D]">Lead</span>
                   </a>
                 </li>
                 <li>
-                  <a href="#projects" className="hover:text-white transition-colors flex items-center gap-1.5">
+                  <a href="#projects" className="hover:text-[#2A1418] transition-colors flex items-center gap-1.5">
                     <span>Bros@24 E-Commerce</span>
-                    <span className="text-[9px] px-1.5 rounded bg-sky-500/10 text-sky-400">Lead</span>
+                    <span className="text-[9px] px-1.5 py-0.5 rounded bg-[#D2410D]/10 text-[#D2410D]">Lead</span>
                   </a>
                 </li>
                 <li>
-                  <a href="#projects" className="hover:text-white transition-colors flex items-center gap-1.5">
+                  <a href="#projects" className="hover:text-[#2A1418] transition-colors flex items-center gap-1.5">
                     <span>BanksBuddy Platform</span>
-                    <span className="text-[9px] px-1.5 rounded bg-purple-500/10 text-purple-400">Collab</span>
+                    <span className="text-[9px] px-1.5 py-0.5 rounded bg-[#9B4A57]/10 text-[#7A3441]">Collab</span>
                   </a>
                 </li>
               </ul>
@@ -1185,16 +1176,14 @@ export default function Home() {
 
             {/* Col 4: Network & Connect */}
             <div className="md:col-span-2 space-y-2.5">
-              <div className="font-semibold text-white uppercase tracking-wider text-[11px]">
-                Connect
-              </div>
-              <ul className="space-y-1.5 text-zinc-400">
+              <div className="eyebrow-label">Connect</div>
+              <ul className="space-y-1.5 text-[#7C6A6D]">
                 <li>
                   <a
                     href={LINKEDIN_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:text-sky-400 flex items-center gap-1.5 transition-colors"
+                    className="hover:text-[#9B4A57] flex items-center gap-1.5 transition-colors"
                   >
                     <LinkedinIcon className="w-3.5 h-3.5" />
                     <span>LinkedIn</span>
@@ -1205,7 +1194,7 @@ export default function Home() {
                     href={GITHUB_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:text-white flex items-center gap-1.5 transition-colors"
+                    className="hover:text-[#2A1418] flex items-center gap-1.5 transition-colors"
                   >
                     <GithubIcon className="w-3.5 h-3.5" />
                     <span>GitHub</span>
@@ -1214,7 +1203,7 @@ export default function Home() {
                 <li>
                   <a
                     href={`mailto:${EMAIL}`}
-                    className="hover:text-white flex items-center gap-1.5 transition-colors"
+                    className="hover:text-[#2A1418] flex items-center gap-1.5 transition-colors"
                   >
                     <Mail className="w-3.5 h-3.5" />
                     <span>Email</span>
@@ -1223,7 +1212,7 @@ export default function Home() {
                 <li>
                   <a
                     href={`tel:${PHONE}`}
-                    className="hover:text-white flex items-center gap-1.5 transition-colors"
+                    className="hover:text-[#2A1418] flex items-center gap-1.5 transition-colors"
                   >
                     <Phone className="w-3.5 h-3.5" />
                     <span>Call</span>
@@ -1234,18 +1223,18 @@ export default function Home() {
           </div>
 
           {/* Sub-Footer Bottom Bar */}
-          <div className="pt-6 border-t border-white/[0.06] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-zinc-400 relative z-10">
+          <div className="pt-6 border-t border-[#9B4A57]/12 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#7C6A6D] relative z-10">
             <div>
               © {new Date().getFullYear()} Utkarsh Vidwat · Pune, Maharashtra, India
             </div>
 
             <div className="flex items-center gap-6">
-              <span className="text-[11px] text-zinc-400 hidden sm:inline">
-                Next.js 16 · React 19 · Tailwind CSS
+              <span className="text-[11px] text-[#7C6A6D] hidden sm:inline">
+                Next.js 16 · React 19 · Tailwind CSS · Morphism UI
               </span>
               <button
                 onClick={scrollToTop}
-                className="tactile-btn px-3 py-1.5 rounded-lg text-zinc-300 hover:text-white flex items-center gap-1.5 text-xs transition-all"
+                className="btn-maroon-ghost px-3 py-1.5 rounded-xl text-xs flex items-center gap-1.5 transition-all"
                 title="Scroll back to top"
               >
                 <span>Back to top</span>
@@ -1257,16 +1246,4 @@ export default function Home() {
       </main>
     </div>
   );
-}
-
-function CopyIndicator({ copied }: { copied: boolean }) {
-  if (copied) {
-    return (
-      <span className="text-emerald-400 flex items-center gap-1 text-[11px]">
-        <Check className="w-3 h-3" />
-        <span>Copied</span>
-      </span>
-    );
-  }
-  return <Mail className="w-3.5 h-3.5 text-zinc-400" />;
 }

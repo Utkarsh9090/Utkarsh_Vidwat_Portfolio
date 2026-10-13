@@ -1,21 +1,25 @@
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google";
+import { Montserrat, Poppins } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({
-  variable: "--font-sans",
+const montserrat = Montserrat({
+  variable: "--font-heading",
   subsets: ["latin"],
+  weight: ["500", "600", "700"],
+  display: "swap",
 });
 
-const jetbrainsMono = JetBrains_Mono({
-  variable: "--font-mono",
+const poppins = Poppins({
+  variable: "--font-body",
   subsets: ["latin"],
+  weight: ["300", "400", "500"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Utkarsh Vidwat | Full-Stack Engineer & AI/FinTech Developer",
+  title: "Utkarsh Vidwat | Full-Stack & FinTech Software Engineer",
   description:
-    "Portfolio of Utkarsh Vidwat — Computer Science undergraduate, Full-Stack Web Developer, AI & FinTech Enthusiast.",
+    "Portfolio of Utkarsh Vidwat — Computer Science undergraduate at NMIET, Full-Stack Web Developer, FinTech & Stock Screener Architect.",
   keywords: [
     "Utkarsh Vidwat",
     "Utkarsh9090",
@@ -25,6 +29,7 @@ export const metadata: Metadata = {
     "FinTech",
     "Stock Screener",
     "SwingTrade India",
+    "NMIMS Indore",
   ],
 };
 
@@ -36,9 +41,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${jetbrainsMono.variable} scroll-smooth dark`}
+      className={`${montserrat.variable} ${poppins.variable} scroll-smooth`}
     >
-      <body className="min-h-screen bg-[#07090e] text-zinc-100 antialiased font-sans selection:bg-cyan-500/20 selection:text-cyan-200">
+      <body className="min-h-screen bg-[#FBF7F6] text-[#2A1418] antialiased selection:bg-[#9B4A57]/20 selection:text-[#7A3441]">
         {children}
       </body>
     </html>
