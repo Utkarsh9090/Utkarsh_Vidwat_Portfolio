@@ -61,7 +61,16 @@ export default function Home() {
   };
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    if (
+      typeof window !== "undefined" &&
+      (window as unknown as { __lenis?: { scrollTo: (target: number | HTMLElement, opts?: object) => void } }).__lenis
+    ) {
+      (window as unknown as { __lenis?: { scrollTo: (target: number | HTMLElement, opts?: object) => void } }).__lenis?.scrollTo(0, {
+        duration: 1.2,
+      });
+    } else {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
   };
 
   // Live stock simulation data for SwingTrade India interactive demo
@@ -352,6 +361,7 @@ export default function Home() {
             </a>
             <button
               onClick={copyEmail}
+              data-cursor-text={copied ? "COPIED" : "EMAIL"}
               className="btn-blood-orange px-3.5 py-1.5 rounded-xl text-xs flex items-center gap-1.5 shadow-sm transition-all"
             >
               {copied ? (
@@ -423,6 +433,7 @@ export default function Home() {
               <div className="flex flex-wrap items-center gap-3.5 pt-2">
                 <a
                   href="#projects"
+                  data-cursor-text="EXPLORE"
                   className="btn-blood-orange px-6 py-3 text-sm flex items-center gap-2"
                 >
                   <span>Explore Featured Work</span>
@@ -433,6 +444,7 @@ export default function Home() {
                   href={LINKEDIN_URL}
                   target="_blank"
                   rel="noopener noreferrer"
+                  data-cursor-text="CONNECT"
                   className="btn-maroon-ghost px-5 py-3 text-sm flex items-center gap-2"
                 >
                   <LinkedinIcon className="w-4 h-4 text-[#9B4A57]" />
@@ -444,6 +456,7 @@ export default function Home() {
                   href={GITHUB_URL}
                   target="_blank"
                   rel="noopener noreferrer"
+                  data-cursor-text="CODE"
                   className="btn-maroon-ghost px-5 py-3 text-sm flex items-center gap-2"
                 >
                   <GithubIcon className="w-4 h-4" />
@@ -1022,6 +1035,7 @@ export default function Home() {
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 text-left pt-2">
               <button
                 onClick={copyEmail}
+                data-cursor-text={copied ? "COPIED" : "COPY"}
                 className="morphism-card p-4 border border-[#9B4A57]/15 hover:border-[#9B4A57]/35 group transition-all"
               >
                 <div className="flex items-center justify-between text-xs text-[#7C6A6D] mb-2">
@@ -1234,6 +1248,7 @@ export default function Home() {
               </span>
               <button
                 onClick={scrollToTop}
+                data-cursor-text="TOP"
                 className="btn-maroon-ghost px-3 py-1.5 rounded-xl text-xs flex items-center gap-1.5 transition-all"
                 title="Scroll back to top"
               >

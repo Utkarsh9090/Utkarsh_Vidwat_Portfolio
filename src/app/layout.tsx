@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Montserrat, Poppins } from "next/font/google";
+import SmoothScroll from "@/components/SmoothScroll";
+import CustomCursor from "@/components/CustomCursor";
 import "./globals.css";
 
 const montserrat = Montserrat({
@@ -41,9 +43,11 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${montserrat.variable} ${poppins.variable} scroll-smooth`}
+      className={`${montserrat.variable} ${poppins.variable}`}
     >
       <body className="min-h-screen bg-[#FBF7F6] text-[#2A1418] antialiased selection:bg-[#9B4A57]/20 selection:text-[#7A3441]">
+        <SmoothScroll />
+        <CustomCursor />
         {children}
       </body>
     </html>
